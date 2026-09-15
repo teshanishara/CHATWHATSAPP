@@ -101,13 +101,14 @@ def process_user_message(user_text: str, sender_id: str = "") -> str:
             "Type any question about GIS mapping, QGIS/ArcGIS, GEE processing, remote sensing, or Custom AI Chatbot integration!"
         )
 
-    if text_lower in ["7", "talk", "human", "specialist", "contact"]:
+    if text_lower in ["7", "talk", "human", "specialist", "contact", "teshan"]:
         return (
-            "👨‍💻 *Connecting with Teshan Ishara / GeoPhoenix Lead*\n\n"
-            "Our Lead Specialist has been notified of your request!\n"
+            "👨‍💻 *Connect Directly with Lead Specialist (Teshan Ishara)*\n\n"
+            "Click the link below to start a direct 1-on-1 chat with Teshan:\n"
+            "👉 https://wa.me/94715298267\n\n"
             "📧 Email: `contact@geophoenixgis.com`\n"
             "🌐 Web: `https://geophoenixgis.com`\n\n"
-            "We usually respond within 1-2 business hours."
+            "Teshan will assist you personally with your custom spatial project!"
         )
 
     # 3. QUOTE parsing
