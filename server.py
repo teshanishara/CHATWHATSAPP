@@ -144,9 +144,14 @@ class GeoPhoenixWebhookHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        """Handles Meta WhatsApp Webhook Verification (Hub Challenge)."""
+        """Handles Meta WhatsApp Webhook Verification and Render Health Checks."""
         parsed = urllib.parse.urlparse(self.path)
         params = urllib.parse.parse_qs(parsed.query)
+
+        # Health check for root path /
+        if parsed.path == "/" or parsed.path == "":
+            self.send_response_data("text/html", b"<h1>GeoPhoenix WhatsApp AI Chatbot is Online and Healthy!</h1>", status=200)
+            return
 
         mode = params.get("hub.mode", [""])[0]
         token = params.get("hub.verify_token", [""])[0]
